@@ -1,11 +1,16 @@
 ; Name: Mariam Ahmed Khalil
 ; Student ID: 2025002092
 ; Section: S3
-; Question: Q2 - 1's and 2's Complement
+; Question: Q1 - 8-Bit Addition with Carry
 
 LDA 2500H
-CMA
-STA 2501H
-INR A
-STA 2502H
+MOV B, A
+LDA 2501H
+MVI C, 00H
+ADD B
+JNC NO_CARRY
+INR C
+NO_CARRY: STA 2502H
+MOV A, C
+STA 2503H
 HLT
